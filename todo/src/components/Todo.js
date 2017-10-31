@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { increment, addTodo } from '../actions';
+import RenderToDo from './RenderToDo'
 
 
 class Todo extends Component {
@@ -25,16 +26,13 @@ class Todo extends Component {
     }
     render () {
         return (
-            <p>
-                To Do List
-                <input type = 'text' value = {this.state.todoitem} onChange = {this.handleListItem} />
-                <button onClick = {() => this.handleToDoList}> Submit Todo </button>
-                <ul> 
-                    {this.state.toDoList.map((list, i) => {
-                        return <li key = {i + 1}> {list} </li>
-                    })}
-                </ul>
-            </p>
+            <RenderToDo 
+                changeHandler = {this.handleListItem}
+
+                addToList = {this.handleToDoList}
+                itemTitle = {this.state.todoitem}
+                itemlist = {this.state.toDoList}
+            />
         );
     }
 } 

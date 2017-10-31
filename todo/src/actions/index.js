@@ -7,7 +7,7 @@ export const increment = () => {
     }
 };
 
-export const addTodo = () => {
+export const addTodo = (listitem) => {
     return {
         type: ADDTODO
     }
